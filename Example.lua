@@ -44,3 +44,5 @@ Home:MakeDropdown({
 		print(player)
 	end
 })
+
+klib.SendNotification("Script", "Loaded successfully!")
