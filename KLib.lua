@@ -750,7 +750,7 @@ klib.CreateTab = function(options)
 	return tabcreateelementfunc
 end
 
-function klib.SendNotification(title, text)
+function klib.SendNotification(title, text, duration)
 	local newnotif = Instance.new("Frame")
 	local bottomline = Instance.new("Frame")
 	local notifcorner2 = Instance.new("UICorner")
@@ -817,6 +817,11 @@ function klib.SendNotification(title, text)
 	newnotifTextLabel_2.TextSize = 14.000
 	newnotifTextLabel_2.TextWrapped = true
 	newnotifTextLabel_2.TextYAlignment = Enum.TextYAlignment.Top
+	
+	task.spawn(function()
+		wait(duration)
+		newnotif:Destroy()
+	end)
 end
 
 return klib
