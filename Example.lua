@@ -1,4 +1,4 @@
-local klib = loadstring(game:HttpGet("https://raw.githubusercontent.com/railme37509124/KLib/KLib.lua"))()
+local klib = loadstring(game:HttpGet("https://raw.githubusercontent.com/railme37509124/KLib/main/KLib.lua"))()
 
 Home = klib.CreateTab{
 	Name = "Home",
