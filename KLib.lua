@@ -21,6 +21,7 @@ gui.ResetOnSpawn = false
 gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
 gui.Parent = game.Players.LocalPlayer.PlayerGui
 gui.IgnoreGuiInset = true
+inst = gui
 dragbar.Parent = gui
 dragbar.Size = UDim2.new(0, 576, 0, 69)
 dragbar.Position = UDim2.new(0.356, 0, 0.283, 0)
