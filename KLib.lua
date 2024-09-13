@@ -731,6 +731,75 @@ klib.CreateTab = function(options)
 	return tabcreateelementfunc
 end
 
+function klib.SendNotification(title, text)
+	local newnotif = Instance.new("Frame")
+	local bottomline = Instance.new("Frame")
+	local notifcorner2 = Instance.new("UICorner")
+	local bottomlinecornerfix = Instance.new("Frame")
+	local notifcorner1 = Instance.new("UICorner")
+	local topline = Instance.new("Frame")
+	local newnotifTextLabel = Instance.new("TextLabel")
+	local newnotifTextLabel_2 = Instance.new("TextLabel")
+	newnotif.Name = "newnotif"
+	newnotif.Parent = game.StarterGui.guia.notifications
+	newnotif.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+	newnotif.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	newnotif.BorderSizePixel = 0
+	newnotif.Position = UDim2.new(0.468010247, 0, 0, 0)
+	newnotif.Size = UDim2.new(0, 421, 0, 100)
+	bottomline.Name = "bottomline"
+	bottomline.Parent = newnotif
+	bottomline.BackgroundColor3 = Color3.fromRGB(15, 123, 255)
+	bottomline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	bottomline.BorderSizePixel = 0
+	bottomline.Position = UDim2.new(0, 0, 0.930000007, 0)
+	bottomline.Size = UDim2.new(0, 421, 0, 7)
+	notifcorner2.Name = "notifcorner2"
+	notifcorner2.Parent = bottomline
+	bottomlinecornerfix.Name = "bottomlinecornerfix"
+	bottomlinecornerfix.Parent = bottomline
+	bottomlinecornerfix.BackgroundColor3 = Color3.fromRGB(15, 123, 255)
+	bottomlinecornerfix.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	bottomlinecornerfix.BorderSizePixel = 0
+	bottomlinecornerfix.Size = UDim2.new(0, 421, 0, 2)
+	notifcorner1.Name = "notifcorner1"
+	notifcorner1.Parent = newnotif
+	topline.Name = "topline"
+	topline.Parent = newnotif
+	topline.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+	topline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	topline.BorderSizePixel = 0
+	topline.Size = UDim2.new(0, 421, 0, 7)
+	newnotifTextLabel.Parent = newnotif
+	newnotifTextLabel.AnchorPoint = Vector2.new(0.5, 0)
+	newnotifTextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	newnotifTextLabel.BackgroundTransparency = 1.000
+	newnotifTextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	newnotifTextLabel.BorderSizePixel = 0
+	newnotifTextLabel.Position = UDim2.new(0.5, 0, 0.0700000003, 0)
+	newnotifTextLabel.Size = UDim2.new(1, 0, -0.0700000003, 28)
+	newnotifTextLabel.Font = Enum.Font.Arial
+	newnotifTextLabel.Text = title
+	newnotifTextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	newnotifTextLabel.TextScaled = true
+	newnotifTextLabel.TextSize = 14.000
+	newnotifTextLabel.TextWrapped = true
+	newnotifTextLabel_2.Parent = newnotif
+	newnotifTextLabel_2.AnchorPoint = Vector2.new(0.5, 0)
+	newnotifTextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	newnotifTextLabel_2.BackgroundTransparency = 1.000
+	newnotifTextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	newnotifTextLabel_2.BorderSizePixel = 0
+	newnotifTextLabel_2.Position = UDim2.new(0.497849405, 0, 0.280000001, 0)
+	newnotifTextLabel_2.Size = UDim2.new(0.943097234, 0, 0.289999992, 28)
+	newnotifTextLabel_2.Font = Enum.Font.Arial
+	newnotifTextLabel_2.Text = text
+	newnotifTextLabel_2.TextColor3 = Color3.fromRGB(158, 158, 158)
+	newnotifTextLabel_2.TextSize = 14.000
+	newnotifTextLabel_2.TextWrapped = true
+	newnotifTextLabel_2.TextYAlignment = Enum.TextYAlignment.Top
+end
+
 --[[
 
 Example:
