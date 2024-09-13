@@ -818,6 +818,13 @@ function klib.SendNotification(title, text, duration)
 	newnotifTextLabel_2.TextSize = 14.000
 	newnotifTextLabel_2.TextWrapped = true
 	newnotifTextLabel_2.TextYAlignment = Enum.TextYAlignment.Top
+
+	task.spawn(function()
+		for i = 1, #text do
+			newnotifTextLabel_2.Text = string.sub(text, 1, i)
+			wait(0.01)
+		end
+	end)
 	
 	task.spawn(function()
 		wait(duration)
