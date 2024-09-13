@@ -1,5 +1,6 @@
 repeat task.wait() until game:IsLoaded()
 inst=nil
+if _G.klibloaded ~= nil then _G.klibloaded:Destroy() end
 klib = {
 	Tabs={},Hover=false,TabCount=0,DragSpeed=0.2,Destroy=function()inst:Destroy()end
 }
@@ -21,7 +22,7 @@ gui.ResetOnSpawn = false
 gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
 gui.Parent = game.Players.LocalPlayer.PlayerGui
 gui.IgnoreGuiInset = true
-inst = gui
+inst, _G.klibloaded = gui, gui
 dragbar.Parent = gui
 dragbar.Size = UDim2.new(0, 576, 0, 69)
 dragbar.Position = UDim2.new(0.356, 0, 0.283, 0)
