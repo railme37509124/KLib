@@ -1,6 +1,7 @@
 repeat task.wait() until game:IsLoaded()
+inst=nil
 klib = {
-	Tabs={},Hover=false,TabCount=0,DragSpeed=0.2
+	Tabs={},Hover=false,TabCount=0,DragSpeed=0.2,Destroy=function()inst:Destroy()end
 }
 
 local notifications = Instance.new("Frame")
