@@ -3,6 +3,8 @@ klib = {
 	Tabs={},Hover=false,TabCount=0,DragSpeed=0.2
 }
 
+local notifications = Instance.new("Frame")
+local notiflist = Instance.new("UIListLayout")
 local gui = Instance.new("ScreenGui")
 local dragbar = Instance.new("Frame")
 local container = Instance.new("Frame")
@@ -17,11 +19,26 @@ gui.Name = "gui"
 gui.ResetOnSpawn = false
 gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
 gui.Parent = game.Players.LocalPlayer.PlayerGui
+gui.IgnoreGuiInset = true
 dragbar.Parent = gui
 dragbar.Size = UDim2.new(0, 576, 0, 69)
 dragbar.Position = UDim2.new(0.356, 0, 0.283, 0)
 dragbar.BackgroundTransparency = 1
 dragbar.ZIndex = 400
+notifications.Name = "notifications"
+notifications.Parent = gui
+notifications.AnchorPoint = Vector2.new(0.5, 0.5)
+notifications.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+notifications.BackgroundTransparency = 1.000
+notifications.BorderColor3 = Color3.fromRGB(0, 0, 0)
+notifications.BorderSizePixel = 0
+notifications.Position = UDim2.new(0.5, 0, 0.5, 0)
+notifications.Size = UDim2.new(1, 0, 1, 0)
+notiflist.Name = "notiflist"
+notiflist.Parent = notifications
+notiflist.HorizontalAlignment = Enum.HorizontalAlignment.Center
+notiflist.SortOrder = Enum.SortOrder.LayoutOrder
+notiflist.Padding = UDim.new(0, 10)
 local UIS = game:GetService("UserInputService")
 function dragify(Frame)
 	dragToggle = nil
@@ -741,7 +758,7 @@ function klib.SendNotification(title, text)
 	local newnotifTextLabel = Instance.new("TextLabel")
 	local newnotifTextLabel_2 = Instance.new("TextLabel")
 	newnotif.Name = "newnotif"
-	newnotif.Parent = game.StarterGui.guia.notifications
+	newnotif.Parent = notifications
 	newnotif.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
 	newnotif.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	newnotif.BorderSizePixel = 0
@@ -799,54 +816,5 @@ function klib.SendNotification(title, text)
 	newnotifTextLabel_2.TextWrapped = true
 	newnotifTextLabel_2.TextYAlignment = Enum.TextYAlignment.Top
 end
-
---[[
-
-Example:
-
-Home = klib.CreateTab{
-	Name = "Home",
-	Image = "rbxassetid://95258930411714"
-	
-}
-
-Home:MakeButton({
-	Name = "Reload Script",
-	Callback = function()
-		print("This is a button")
-	end
-})
-
-Home:MakeSlider({
-	Name = "Drag Speed",
-	Callback = function(value)
-		klib.DragSpeed = value
-	end,
-	Min = 0,
-	Max = 1,
-	Round = false
-})
-
-Home:MakeToggle({
-	Name = "Enable autofarm",
-	Callback = function(state)
-		print(state)
-	end
-})
-
-Home:MakeTextBox({
-	Name = "Enter Player Name",
-	Callback = function(text)
-		print(text)
-	end
-})
-
-Home:MakeDropdown({
-	Name = "Player list",
-	List = game.Players:GetPlayers(),
-	Callback = function(player)
-		print(player)
-	end
-})]]
 
 return klib
