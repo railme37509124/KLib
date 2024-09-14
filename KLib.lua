@@ -651,6 +651,7 @@ klib.CreateTab = function(options)
 		local sliderhold = Instance.new("Frame")
 		local slidereb = Instance.new("TextButton")
 		local sliderval = Instance.new("TextLabel")
+		local sliderinnerindi = Instance.new("Frame")
 		someslider.Name = "someslider"
 		someslider.Parent = ophScrollingFrame
 		someslider.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
@@ -728,12 +729,19 @@ klib.CreateTab = function(options)
 		sliderval.TextSize = 14.000
 		sliderval.TextWrapped = true
 		sliderval.TextXAlignment = Enum.TextXAlignment.Right
+		sliderinnerindi.Name = "innerindi"
+		sliderinnerindi.Parent = sliderline
+		sliderinnerindi.BackgroundColor3 = Color3.fromRGB(19, 112, 152)
+		sliderinnerindi.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		sliderinnerindi.BorderSizePixel = 0
+		sliderinnerindi.Size = UDim2.new(0, 0, 1, 0)
 		slidereb.MouseButton1Down:Connect(function()
 			slfunc.Dragging = true
 			task.spawn(function()
 				while slfunc.Dragging do
 					local output = math.clamp((slfunc.Mouse.X - sliderreal.AbsolutePosition.X)/sliderreal.AbsoluteSize.X, 0, 1)
 					sliderhold.Position = UDim2.new(tonumber(output), 0, 0.5, 0)
+					sliderinnerindi.Size = UDim2.new(tonumber(output), 0, 1, 0)
 					output = options.Min + (output * (options.Max - options.Min))
 					output = (options.Round and math.round(output)) or output
 					sliderval.Text = tostring(output)
@@ -743,8 +751,10 @@ klib.CreateTab = function(options)
 			end)
 		end)
 		
-		slidereb.MouseButton1Up:Connect(function()
-			slfunc.Dragging = false
+		game:GetService("UserInputService").InputEnded:Connect(function(inp)
+			if inp.UserInputType == Enum.UserInputType.MouseButton1 and slfunc.Dragging then
+				slfunc.Dragging = false
+			end
 		end)
 	end
 	
@@ -813,12 +823,11 @@ function klib.SendNotification(title, text, duration)
 	newnotifTextLabel_2.Position = UDim2.new(0.497849405, 0, 0.280000001, 0)
 	newnotifTextLabel_2.Size = UDim2.new(0.943097234, 0, 0.289999992, 28)
 	newnotifTextLabel_2.Font = Enum.Font.Arial
-	newnotifTextLabel_2.Text = text
 	newnotifTextLabel_2.TextColor3 = Color3.fromRGB(158, 158, 158)
 	newnotifTextLabel_2.TextSize = 14.000
 	newnotifTextLabel_2.TextWrapped = true
 	newnotifTextLabel_2.TextYAlignment = Enum.TextYAlignment.Top
-
+	
 	task.spawn(function()
 		for i = 1, #text do
 			newnotifTextLabel_2.Text = string.sub(text, 1, i)
